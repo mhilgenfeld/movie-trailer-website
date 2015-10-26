@@ -3,8 +3,8 @@
 
 # Remove VS files for this repo
 *.sln
-*.pyproj
-*.pyc
+#*.pyproj
+#*.pyc
 
 
 # User-specific files
