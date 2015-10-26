@@ -1,4 +1,4 @@
-import media
+﻿import media
 import fresh_tomatos
 
 cars = media.Movie("Cars", 
@@ -63,5 +63,19 @@ pap = media.Movie("Pride & Prejudice",
 
 movies = {cars, stars, courageous, kfp, ipMan, pap}
 
-fresh_tomatos.open_movies_page(movies)
+raymond = media.Series("Everybody Loves Raymond", "The comical everyday life of a successful sports columnist and his dysfunctional family.",
+                       "1996-2005", "https://www.youtube.com/watch?v=enTKltmtlnE", "http://ia.media-imdb.com/images/M/MV5BMTc2ODEyMzUwMV5BMl5BanBnXkFtZTcwNTAxODUyMQ@@._V1_SY317_CR8,0,214,317_AL_.jpg",
+                       9, 210, "Ray Ramono", "Patricia Heaton", "Brad Garrett", "Doris Roberts", "Peter Doyle")
+
+scrubs = media.Series("Scrubs", "In the unreal world of Sacred Heart Hospital, intern John ""J.D"" Dorian learns the ways of medicine, friendship and life.",
+                      "2001-2010", "https://www.youtube.com/watch?v=Ji6-Pbfypys", "http://ia.media-imdb.com/images/M/MV5BMTc2NjgxMzc5Nl5BMl5BanBnXkFtZTcwOTc0OTM0MQ@@._V1._CR10,44,330,454_SY317_CR8,0,214,317_AL_.jpg",
+                      9, 182, "Zach Braff", "Sarah Chalke", "Donald Faison", "Neil Flynn", "John C McGinley")
+
+covert = media.Series("Covert Affairs", "A young CIA operative/trainee, Annie Walker, is sent into the field to work for the DPD (Domestic Protection Division).",
+                      "2010-2014", "https://www.youtube.com/watch?v=pXXOg4Xe2xQ", "http://ia.media-imdb.com/images/M/MV5BMTM3Nzk5Njc3M15BMl5BanBnXkFtZTcwMTUxNzc4Nw@@._V1_SY317_CR11,0,214,317_AL_.jpg",
+                      5, 75, "Piper Perabo", "Christopher Gorham", "Kari Matchett")
+
+series = {scrubs, raymond, covert}
+
+fresh_tomatos.open_movies_page(movies, series)
 
