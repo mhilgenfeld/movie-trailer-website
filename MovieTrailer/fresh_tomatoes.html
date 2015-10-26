@@ -1,0 +1,218 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Fresh Tomatoes!</title>
+    <!-- Bootstrap 3 -->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="http://cdn.jsdelivr.net/qtip2/2.2.1/jquery.qtip.min.css">
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="http://cdn.jsdelivr.net/qtip2/2.2.1/jquery.qtip.min.js"></script>
+    <style type="text/css" media="screen">
+        body {
+            padding-top: 80px;
+        }
+        #trailer .modal-dialog {
+            margin-top: 200px;
+            width: 640px;
+            height: 480px;
+        }
+        .hanging-close {
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            z-index: 9001;
+        }
+        #trailer-video {
+            width: 100%;
+            height: 100%;
+        }
+        .movie-tile {
+            margin-bottom: 20px;
+            padding-top: 15px;
+        }
+        .movie-tile:hover {
+            background-color: #EEE;
+            cursor: pointer;
+        }
+        .scale-media {
+            padding-bottom: 56.25%;
+            position: relative;
+        }
+        .scale-media iframe {
+            border: none;
+            height: 100%;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            top: 0;
+            background-color: white;
+        }
+        .tt{
+            height: 25px;
+            width: 25px;
+        }
+
+    </style>
+    <script type="text/javascript" charset="utf-8">
+         $(document).ready(function() {
+            $('.tt[id^="tooltip_"]').each(function(){
+                $(this).qtip({
+                    content: $('#movie_' + $(this).attr('id')),
+                        show: {
+                        delay:250
+                    },
+                    hide: {
+                        fixed: true,
+                        delay: 180
+                    },
+                    style: {
+                        classes: 'qtip-dark qtip-shadow',
+                    },
+                    position: {
+                        my: 'bottom center',
+                        at: 'top center'
+                    }    
+                });
+            });
+        });
+
+        // Pause the video when the modal is closed
+        $(document).on('click', '.hanging-close, .modal-backdrop, .modal', function (event) {
+            // Remove the src so the player itself gets removed, as this is the only
+            // reliable way to ensure the video stops playing in IE
+            $("#trailer-video-container").empty();
+        });
+        // Start playing the video whenever the trailer modal is opened
+        $(document).on('click', '.movie-tile', function (event) {
+            var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
+            var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
+            $("#trailer-video-container").empty().append($("<iframe></iframe>", {
+              'id': 'trailer-video',
+              'type': 'text-html',
+              'src': sourceUrl,
+              'frameborder': 0
+            }));
+        });
+        // Animate in the movies when the page loads
+        $(document).ready(function () {
+          $('.movie-tile').hide().first().show("fast", function showNext() {
+            $(this).next("div").show("fast", showNext);
+          });
+        });
+    </script>
+</head>
+
+  <body>
+
+  <div style="display: none;">
+    
+<div id="movie_tooltip_0">
+    <h5>Plot <small>When a tragedy strikes close to home, four police officers struggle with their faith and their roles as husbands and fathers; together they make a decision that will change all of their lives.</small></h5>
+    <h5>Rating <small>PG-13</small></h5>
+    <h5>Box Office <small>$34.52M</small></h5>
+    <h5>Run Time <small>129 Mins</small></h5>
+    <h5>Cast <small></br>Ken Bevel</br>Alex Kendrick</br>Kevin Downes</br>Renee Jewell</small></h5>
+</div>
+
+<div id="movie_tooltip_1">
+    <h5>Plot <small>Sparks fly when spirited Elizabeth Bennet meets single, rich, and proud Mr. Darcy. But Mr. Darcy reluctantly finds himself falling in love with a woman beneath his class. Can each overcome their own pride and prejudice?</small></h5>
+    <h5>Rating <small>PG</small></h5>
+    <h5>Box Office <small></small></h5>
+    <h5>Run Time <small>129 Mins</small></h5>
+    <h5>Cast <small></br>Keira Knightley</br>Talulah Riley</br>Rosamund Pike</br>Jena Malone</small></h5>
+</div>
+
+<div id="movie_tooltip_2">
+    <h5>Plot <small>King Arthur and his knights embark on a low-budget search for the Grail, encountering many very silly obstacles.</small></h5>
+    <h5>Rating <small>PG</small></h5>
+    <h5>Box Office <small>$5M</small></h5>
+    <h5>Run Time <small>91 Mins</small></h5>
+    <h5>Cast <small></br>Graham Chapman</br>John Cleese</br>Eric Idle</br>Terry Gilliam</small></h5>
+</div>
+
+<div id="movie_tooltip_3">
+    <h5>Plot <small>In the Valley of Peace, Po the Panda finds himself chosen as the Dragon Warrior despite the fact that he is obese and a complete novice at martial arts.</small></h5>
+    <h5>Rating <small>PG</small></h5>
+    <h5>Box Office <small>$631.70M</small></h5>
+    <h5>Run Time <small>92 Mins</small></h5>
+    <h5>Cast <small></br>Jack Black</br>Dustin Hoffman</br>Angelina Jolie</br>Ian McShane</small></h5>
+</div>
+
+<div id="movie_tooltip_4">
+    <h5>Plot <small>A semi-biographical account of Yip Man, the successful martial arts master who taught the Chinese martial art of Wing Chun to the world.</small></h5>
+    <h5>Rating <small>R</small></h5>
+    <h5>Box Office <small></small></h5>
+    <h5>Run Time <small>106 Mins</small></h5>
+    <h5>Cast <small></br>Donnie Yen</br>Simon Yam</br>Ka Tung Lam</br>Siu-Wong Fan</small></h5>
+</div>
+
+<div id="movie_tooltip_5">
+    <h5>Plot <small>A hot-shot race-car named Lightning McQueen gets waylaid in Radiator Springs, where he finds the true meaning of friendship and family.</small></h5>
+    <h5>Rating <small>PG</small></h5>
+    <h5>Box Office <small>$461.98M</small></h5>
+    <h5>Run Time <small>117 Mins</small></h5>
+    <h5>Cast <small></br>Owen Wilson</br>Paul Newman</br>Bonnie Hunt</br>Larry The Cable Guy</small></h5>
+</div>
+
+  </div>
+    <!-- Trailer Video Modal -->
+    <div class="modal" id="trailer">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <a href="#" class="hanging-close" data-dismiss="modal" aria-hidden="true">
+            <img src="https://lh5.ggpht.com/v4-628SilF0HtHuHdu5EzxD7WRqOrrTIDi_MhEG6_qkNtUK5Wg7KPkofp_VJoF7RS2LhxwEFCO1ICHZlc-o_=s0#w=24&h=24"/>
+          </a>
+          <div class="scale-media" id="trailer-video-container">
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Main Page Content -->
+    <div class="container">
+      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Fresh Tomatoes Movie Trailers</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="i9VT_NBIVfs" data-toggle="modal" data-target="#trailer">
+    <img src="http://ia.media-imdb.com/images/M/MV5BMjEyODMxNjM4OF5BMl5BanBnXkFtZTcwMTg5OTg3NQ@@._V1_SX300.jpg" width="220" height="342">
+    <h2>Courageous <small> (2011)</small> <img src="info.png" id="tooltip_0" class="tt"></img></h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="fJA27Jujzq4" data-toggle="modal" data-target="#trailer">
+    <img src="http://ia.media-imdb.com/images/M/MV5BMTA1NDQ3NTcyOTNeQTJeQWpwZ15BbWU3MDA0MzA4MzE@._V1_SX300.jpg" width="220" height="342">
+    <h2>Pride & Prejudice <small> (2005)</small> <img src="info.png" id="tooltip_1" class="tt"></img></h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="RDM75-oXGmQ" data-toggle="modal" data-target="#trailer">
+    <img src="http://ia.media-imdb.com/images/M/MV5BMTkzODczMTgwM15BMl5BanBnXkFtZTYwNTAwODI5._V1_SX300.jpg" width="220" height="342">
+    <h2>Monty Python <small> (1975)</small> <img src="info.png" id="tooltip_2" class="tt"></img></h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="GEgk9XsFCR0" data-toggle="modal" data-target="#trailer">
+    <img src="http://ia.media-imdb.com/images/M/MV5BMTIxOTY1NjUyN15BMl5BanBnXkFtZTcwMjMxMDk1MQ@@._V1_SX300.jpg" width="220" height="342">
+    <h2>Kung Fu Panda <small> (2008)</small> <img src="info.png" id="tooltip_3" class="tt"></img></h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="1AJxXQ7xojE" data-toggle="modal" data-target="#trailer">
+    <img src="http://ia.media-imdb.com/images/M/MV5BMjE0NDUzMDcyOF5BMl5BanBnXkFtZTcwNzAxMTA2Mw@@._V1_SX300.jpg" width="220" height="342">
+    <h2>Ip Man <small> (2008)</small> <img src="info.png" id="tooltip_4" class="tt"></img></h2>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="uxx75HVd-F0" data-toggle="modal" data-target="#trailer">
+    <img src="http://ia.media-imdb.com/images/M/MV5BMTg5NzY0MzA2MV5BMl5BanBnXkFtZTYwNDc3NTc2._V1_SX300.jpg" width="220" height="342">
+    <h2>Cars <small> (2006)</small> <img src="info.png" id="tooltip_5" class="tt"></img></h2>
+</div>
+
+    </div>
+  </body>
+</html>
